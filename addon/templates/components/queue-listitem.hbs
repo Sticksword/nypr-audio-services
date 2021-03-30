@@ -1,5 +1,5 @@
-{{#holygrail-layout class="queueitem" as |g|}}
-  {{#g.center}}
+<HolygrailLayout @class="queueitem" as |g|>
+  <g.center>
     <div class="queueitem-info">
       <div class="text flush queueitem-title">
         <span class="queueitem-itemtitle">
@@ -21,52 +21,34 @@
         </div>
       {{/if}}
       <div class="queueitem-controls">
-        {{#nypr-share-button
-          classNames="queueitem-sharebutton"
-          shareText=story.shareMetadata.shareText
-          shareUrl=story.shareMetadata.shareUrl
-          data-action=(concat 'Share from ' playContext)
-          as |share|}}
-          {{share.button
-            type='Facebook'
-            data-label=(concat story.title ' | ' (or story.showTitle story.channelTitle 'NPR Article') ' | Facebook')}}
-          {{share.button
-            type='Twitter'
-            via='WNYC'
-            data-label=(concat story.title ' | ' (or story.showTitle story.channelTitle 'NPR Article') ' | Twitter')}}
-          {{share.button
-            type='Email'
-            data-label=(concat story.title ' | ' (or story.showTitle story.channelTitle 'NPR Article') ' | Email')}}
-        {{/nypr-share-button}}
+        <NyprShareButton @classNames="queueitem-sharebutton" @shareText={{story.shareMetadata.shareText}} @shareUrl={{story.shareMetadata.shareUrl}} @data-action={{concat "Share from " playContext}} as |share|>
+          <share.button @type="Facebook" @data-label={{concat story.title " | " (or story.showTitle story.channelTitle "NPR Article") " | Facebook"}} />
+          <share.button @type="Twitter" @via="WNYC" @data-label={{concat story.title " | " (or story.showTitle story.channelTitle "NPR Article") " | Twitter"}} />
+          <share.button @type="Email" @data-label={{concat story.title " | " (or story.showTitle story.channelTitle "NPR Article") " | Email"}} />
+        </NyprShareButton>
         {{#if removeAction}}
           <button class="btn btn--blank btn--playerlight queueitem-deletebutton" {{action removeAction story.id}}>
-            {{nypr-svg className="icon" icon="trash"}}
+            <NyprSvg @className="icon" @icon="trash" />
           </button>
         {{/if}}
       </div>
     </div>
-  {{/g.center}}
+  </g.center>
 
-  {{#g.right}}
+  <g.right>
     <div class="btn-group">
-      {{listen-button
-        type='blue-hollow'
-        isCurrentSound=isCurrent
-        playContext=playContext
-        itemPK=story.id
-        itemTitle=story.title
-        itemShow=(or story.showTitle story.channelTitle 'NPR Article')}}
+      <ListenButton @type="blue-hollow" @isCurrentSound={{isCurrent}} @playContext={{playContext}} @itemPK={{story.id}} @itemTitle={{story.title}} @itemShow={{or story.showTitle story.channelTitle "NPR Article"}} />
     </div>
-  {{/g.right}}
-{{/holygrail-layout}}
+  </g.right>
+</HolygrailLayout>
 
 {{#if (and isCurrent (eq playContext 'queue'))}}
   <div class="queueitem-playingicon">
-    {{nypr-svg className="icon" icon="speaker"}}
+    <NyprSvg @className="icon" @icon="speaker" />
   </div>
 {{/if}}
 {{#if draggable}}
   <div class="queueitem-draghandle">
-    {{nypr-svg className="icon" icon="reorder"}}
+    <NyprSvg @className="icon" @icon="reorder" />
   </div>
 {{/if}}

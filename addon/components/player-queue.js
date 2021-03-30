@@ -14,7 +14,7 @@ export default Component.extend({
   classNames:         ['player-queue'],
 
   sortHandle: computed('isSortingEnabled', function() {
-    if (get(this, 'isSortingEnabled')) {
+    if (this.isSortingEnabled) {
       return '.queueitem';
     }
     return '.dontdrag';
@@ -34,10 +34,10 @@ export default Component.extend({
 
   actions: {
     removeFromQueue(id) {
-      get(this, 'queue').removeFromQueueById(id);
+      this.queue.removeFromQueueById(id);
     },
     reorderItems(reorderedItems/*, droppedItem*/) {
-      get(this, 'queue').reset(reorderedItems);
+      this.queue.reset(reorderedItems);
     },
   },
 });

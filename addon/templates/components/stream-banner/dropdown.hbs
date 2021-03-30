@@ -1,12 +1,3 @@
-{{#power-select
-  selectedItemComponent=selectedItemComponent
-  triggerComponent='stream-banner/trigger'
-  renderInPlace=true
-  searchEnabled=false
-  dropdownClass="stream-banner-dropdown"
-  selected=activeStream
-  options=streams
-  onchange=(action (mut activeStream))
-  as |stream|}}
+<PowerSelect @selectedItemComponent={{selectedItemComponent}} @triggerComponent="stream-banner/trigger" @renderInPlace={{true}} @searchEnabled={{false}} @dropdownClass="stream-banner-dropdown" @selected={{activeStream}} @options={{streams}} @onchange={{action (mut activeStream)}} as |stream|>
   {{yield stream}}
-{{/power-select}}
+</PowerSelect>

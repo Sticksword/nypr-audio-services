@@ -2,7 +2,7 @@
   {{#unless outerBlock}}
     <label class="visuallyhidden" id="playpause-label">Play/Pause</label>
   {{/unless}}
-  {{nypr-svg className="icon icon--play" icon=playIcon}}
-  {{nypr-svg className="icon icon--pause" icon=pauseIcon}}
+  <NyprSvg @className="icon icon--play" @icon={{playIcon}} />
+  <NyprSvg @className="icon icon--pause" @icon={{pauseIcon}} />
   <i class="listen-spinner"></i>
 {{/unless}}

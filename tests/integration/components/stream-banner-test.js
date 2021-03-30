@@ -1,6 +1,6 @@
 import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, findAll } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | stream banner', function(hooks) {
@@ -8,7 +8,7 @@ module('Integration | Component | stream banner', function(hooks) {
 
   test('it renders', async function(assert) {
     await render(hbs`{{stream-banner}}`);
-    assert.equal(this.$('.stream-banner').length, 1, 'it should render');
+    assert.dom('.stream-banner').exists({ count: 1 }, 'it should render');
   });
 
   skip('it renders a dropdown of the given stream options');

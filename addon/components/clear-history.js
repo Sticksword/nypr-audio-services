@@ -20,7 +20,7 @@ export default Component.extend({
       set(this, 'isConfirming', false);
     },
     clearHistory() {
-      get(this, 'listens').clearHistory();
+      this.listens.clearHistory();
       set(this, 'isConfirming', false);
     }
   }

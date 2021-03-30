@@ -40,6 +40,12 @@ $ npm i nypublicradio/nypr-audio-services
 $ ember g nypr-audio-services
 ```
 
+### Compatibility
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
+
 ## Development
 
 * `git clone git@github.com:nypublicradio/nypr-audio-services`
@@ -63,6 +69,12 @@ $ ember g nypr-audio-services
 * `ember build`
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
 
 ## Publishing
 

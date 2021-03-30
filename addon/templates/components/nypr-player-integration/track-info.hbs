@@ -1,4 +1,4 @@
-{{#text-crawl watch=currentAudio}}
+<TextCrawl @watch={{currentAudio}}>
   {{!-- Show Link --}}
   {{#if (and showTitle (media 'isNyprPlayerMediumAndUp'))}}
     <a href={{showUrl}}
@@ -38,4 +38,4 @@
        data-action='Click Through to Show'
        data-label='{{storyTitle}} | {{showTitle}}'>{{{showTitle}}}</a>
   {{/if}}
-{{/text-crawl}}
+</TextCrawl>

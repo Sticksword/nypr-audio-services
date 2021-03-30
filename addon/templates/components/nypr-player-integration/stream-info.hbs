@@ -21,5 +21,5 @@
      data-action='Click Through to Music Play History'
      data-label='player'>MUSIC PLAY HISTORY</a>
   {{/if}}
-  {{#link-to 'stream' (query-params modal=null) title='All Live Streams'}}ALL LIVE STREAMS{{/link-to}}
+  <LinkTo @route="stream" @query={{hash modal=null}} @title="All Live Streams">ALL LIVE STREAMS</LinkTo>
 </span>

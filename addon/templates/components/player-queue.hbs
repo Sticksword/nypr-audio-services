@@ -7,31 +7,21 @@
 {{#if (and props.playingFromQueue props.currentContentModel)}}
   <div class='list'>
     <div class='list-item' data-test-name="now-playing-item">
-      {{queue-listitem
-        dataId=props.currentContentId
-        isCurrent=true
-        story=props.currentContentModel
-        playContext='queue'}}
+      <QueueListitem @dataId={{props.currentContentId}} @isCurrent={{true}} @story={{props.currentContentModel}} @playContext="queue" />
     </div>
   </div>
 {{/if}}
 
-{{#sortable-group tagName='div' classNames='list list--borderflip' onChange='reorderItems' as |group|}}
+<SortableGroup @tagName="div" @classNames="list list--borderflip" @onChange="reorderItems" as |group|>
 {{#each props.queue as |story index|}}
-  {{#sortable-item tagName='div' classNames='list-item' model=story group=group handle=sortHandle}}
-    {{queue-listitem
-      dataId=story.id
-      story=story
-      playContext='queue'
-      draggable=true
-      removeAction=(action 'removeFromQueue')
-    }}
-  {{/sortable-item}}
+  <SortableItem @tagName="div" @classNames="list-item" @model={{story}} @group={{group}} @handle={{sortHandle}}>
+    <QueueListitem @dataId={{story.id}} @story={{story}} @playContext="queue" @draggable={{true}} @removeAction={{action "removeFromQueue"}} />
+  </SortableItem>
 {{else}}
   {{#unless (and props.playingFromQueue props.currentContentModel)}}
     <div class="queuelist-empty">Your queue is empty! Add audio by selecting the “+ Queue” button next to the pieces that you want to add.</div>
   {{/unless}}
 {{/each}}
-{{/sortable-group}}
+</SortableGroup>
 
 {{/liquid-bind}}
