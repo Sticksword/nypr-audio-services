@@ -1,25 +1,31 @@
 <span class="nypr-player-stream-info-station-info">
   LIVE NOW on <a href={{streamScheduleUrl}}
-   target={{if (is-external streamScheduleUrl) '_blank'}}
-   rel={{if (is-external streamScheduleUrl) 'noopener'}}
+   target={{if (is-external streamScheduleUrl) "_blank"}}
+   rel={{if (is-external streamScheduleUrl) "noopener"}}
    class="gtm__click-tracking"
-   data-action='Click Through to Schedule'
-   data-label='player'>{{streamName}}</a>
+   data-action="Click Through to Schedule"
+   data-label="player">
+                {{streamName}}
+              </a>
 </span>
 <span class="nypr-player-stream-info-station-links">
   <a href={{streamScheduleUrl}}
-     title='Schedule'
-     target={{if (is-external streamScheduleUrl) '_blank'}}
-     rel={{if (is-external streamScheduleUrl) 'noopener'}}
+     title="Schedule"
+     target={{if (is-external streamScheduleUrl) "_blank"}}
+     rel={{if (is-external streamScheduleUrl) "noopener"}}
      class="gtm__click-tracking"
-     data-action='Click Through to Schedule'
-     data-label='player'>SCHEDULE</a>
+     data-action="Click Through to Schedule"
+     data-label="player">
+    SCHEDULE
+  </a>
   {{#if streamPlaylistUrl}}
-  <a href={{streamPlaylistUrl}}
-     title='Music Play History'
-     class="gtm__click-tracking"
-     data-action='Click Through to Music Play History'
-     data-label='player'>MUSIC PLAY HISTORY</a>
+    <a href={{streamPlaylistUrl}}
+      title="Music Play History"
+      class="gtm__click-tracking"
+      data-action="Click Through to Music Play History"
+      data-label="player">
+      MUSIC PLAY HISTORY
+    </a>
   {{/if}}
-  {{#link-to 'stream' (query-params modal=null) title='All Live Streams'}}ALL LIVE STREAMS{{/link-to}}
+  {{#link-to "stream" (query-params modal=null) title="All Live Streams"}}ALL LIVE STREAMS{{/link-to}}
 </span>
