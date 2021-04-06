@@ -29,12 +29,11 @@ module('Integration | Component | nypr player integration/track info', function(
     const actual = this.element.textContent.trim().replace(/\s+/g,' ');
 
     assert.equal(actual, expected, "overall text should be the same");
-
     assert.equal(this.$('a')[0].href, 'http://theshow/');
-    assert.equal(this.$('a')[0].innerHTML, 'The Show');
+    assert.equal(this.$('a')[0].innerHTML.trim(), 'The Show');
 
     assert.equal(this.$('a')[1].href, 'http://thestory/');
-    assert.equal(this.$('a')[1].innerHTML, 'The Story');
+    assert.equal(this.$('a')[1].innerHTML.trim(), 'The Story');
   });
 
   test('it reverses metadata order on small screens', async function(assert) {
@@ -54,10 +53,10 @@ module('Integration | Component | nypr player integration/track info', function(
     assert.equal(actual, expected, "overall text should be the same");
 
     assert.equal(this.$('a')[1].href, 'http://theshow/');
-    assert.equal(this.$('a')[1].innerHTML, 'The Show');
+    assert.equal(this.$('a')[1].innerHTML.trim(), 'The Show');
 
     assert.equal(this.$('a')[0].href, 'http://thestory/');
-    assert.equal(this.$('a')[0].innerHTML, 'The Story');
+    assert.equal(this.$('a')[0].innerHTML.trim(), 'The Story');
   });
 
   test('it displays song details as plain text', async function(assert) {
@@ -77,7 +76,7 @@ module('Integration | Component | nypr player integration/track info', function(
     assert.equal(actual, expected, "overall text should be the same");
 
     assert.equal(this.$('a')[0].href, 'http://thesongshow/');
-    assert.equal(this.$('a')[0].innerHTML, 'The Song Show');
+    assert.equal(this.$('a')[0].innerHTML.trim(), 'The Song Show');
   });
 
   test('it renders html tags in metadata', async function(assert) {

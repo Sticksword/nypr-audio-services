@@ -1,14 +1,16 @@
+{{!-- TODO: move inline style to component style --}}
+{{! template-lint-disable no-inline-styles }}
 <div class="stream-banner-card"
      style={{style}}>
   <div>
     {{#if streams.isFulfilled}}
       {{yield activeStream (hash
-        header=(component 'stream-banner/station' activeStream=activeStream streams=streams)
-        details=(component 'stream-banner/details' activeStream=activeStream)
-        controls=(component 'stream-banner/controls' activeStream=activeStream)
+        header=(component "stream-banner/station" activeStream=activeStream streams=streams)
+        details=(component "stream-banner/details" activeStream=activeStream)
+        controls=(component "stream-banner/controls" activeStream=activeStream)
       )}}
     {{else}}
-    Loading...
+      Loading...
     {{/if}}
   </div>
 </div>

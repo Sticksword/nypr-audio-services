@@ -4,34 +4,36 @@
   currentContentId=dj.currentContentId
   playingFromQueue=playingFromQueue) as |props|}}
 
-{{#if (and props.playingFromQueue props.currentContentModel)}}
-  <div class='list'>
-    <div class='list-item' data-test-name="now-playing-item">
-      {{queue-listitem
-        dataId=props.currentContentId
-        isCurrent=true
-        story=props.currentContentModel
-        playContext='queue'}}
+  {{#if (and props.playingFromQueue props.currentContentModel)}}
+    <div class="list">
+      <div class="list-item" data-test-name="now-playing-item">
+        {{queue-listitem
+          dataId=props.currentContentId
+          isCurrent=true
+          story=props.currentContentModel
+          playContext="queue"}}
+      </div>
     </div>
-  </div>
-{{/if}}
+  {{/if}}
 
-{{#sortable-group tagName='div' classNames='list list--borderflip' onChange='reorderItems' as |group|}}
-{{#each props.queue as |story index|}}
-  {{#sortable-item tagName='div' classNames='list-item' model=story group=group handle=sortHandle}}
-    {{queue-listitem
-      dataId=story.id
-      story=story
-      playContext='queue'
-      draggable=true
-      removeAction=(action 'removeFromQueue')
-    }}
-  {{/sortable-item}}
-{{else}}
-  {{#unless (and props.playingFromQueue props.currentContentModel)}}
-    <div class="queuelist-empty">Your queue is empty! Add audio by selecting the “+ Queue” button next to the pieces that you want to add.</div>
-  {{/unless}}
-{{/each}}
-{{/sortable-group}}
+  {{#sortable-group tagName="div" classNames="list list--borderflip" onChange="reorderItems" as |group|}}
+    {{! template-lint-disable no-unused-block-params }}
+    {{#each props.queue as |story index|}}
+      {{#sortable-item tagName="div" classNames="list-item" model=story group=group handle=sortHandle}}
+        {{queue-listitem
+          dataId=story.id
+          story=story
+          playContext="queue"
+          draggable=true
+          removeAction=(action "removeFromQueue")
+        }}
+      {{/sortable-item}}
+    {{else}}
+      {{! template-lint-disable simple-unless }}
+      {{#unless (and props.playingFromQueue props.currentContentModel)}}
+        <div class="queuelist-empty">Your queue is empty! Add audio by selecting the “+ Queue” button next to the pieces that you want to add.</div>
+      {{/unless}}
+    {{/each}}
+  {{/sortable-group}}
 
 {{/liquid-bind}}

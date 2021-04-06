@@ -1,19 +1,27 @@
 import Component from '@ember/component';
 import layout from '../../templates/components/nypr-player-integration/track-info';
 import diffAttrs from 'ember-diff-attrs';
+import { htmlSafe } from '@ember/template';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   layout,
-  tagName       : '',
+  tagName: '',
 
-  showTitle     : null,
-  showUrl       : null,
+  showTitle: null,
+  unescapedShowTitle: computed('showTitle', function() {
+    return htmlSafe(this.showTitle);
+  }),
+  showUrl: null,
 
-  storyTitle    : null,
-  storyUrl      : null,
+  storyTitle: null,
+  unescapedStoryTitle: computed('storyTitle', function() {
+    return htmlSafe(this.storyTitle);
+  }),
+  storyUrl: null,
 
-  audioId       : null,
-  songDetails   : null,
+  audioId: null,
+  songDetails: null,
 
   didReceiveAttrs: diffAttrs('showTitle', function(changedAttrs, ...args) {
     this._super(...args);

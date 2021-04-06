@@ -3,21 +3,25 @@
     <div class="queueitem-info">
       <div class="text flush queueitem-title">
         <span class="queueitem-itemtitle">
-          <a href='{{story.url}}?modal=null'
+          <a href="{{story.url}}?modal=null"
              title={{story.title}}
              class="gtm__click-tracking"
              data-action="Click Through to Story"
-             data-label="{{story.title}} | {{story.showTitle}}">{{{story.title}}}</a>
+             data-label="{{story.title}} | {{story.showTitle}}">
+            {{unescapedTitle}}
+          </a>
         </span>
         <span class="queueitem-duration">{{story.audioDurationReadable}}</span>
       </div>
       {{#if story.headers.brand.url}}
         <div class="text text--medium text--gray flush queueitem-showtitle">
-          <a href='{{story.headers.brand.url}}?modal=null'
+          <a href="{{story.headers.brand.url}}?modal=null"
              title={{story.showTitle}}
              class="gtm__click-tracking"
-             data-action='Click Through to Show'
-             data-label="{{story.title}} | {{story.showTitle}}">{{{story.showTitle}}}</a>
+             data-action="Click Through to Show"
+             data-label="{{story.title}} | {{story.showTitle}}">
+            {{unescapedShowTitle}}
+          </a>
         </div>
       {{/if}}
       <div class="queueitem-controls">
@@ -25,21 +29,21 @@
           classNames="queueitem-sharebutton"
           shareText=story.shareMetadata.shareText
           shareUrl=story.shareMetadata.shareUrl
-          data-action=(concat 'Share from ' playContext)
+          data-action=(concat "Share from " playContext)
           as |share|}}
           {{share.button
-            type='Facebook'
-            data-label=(concat story.title ' | ' (or story.showTitle story.channelTitle 'NPR Article') ' | Facebook')}}
+            type="Facebook"
+            data-label=(concat story.title " | " (or story.showTitle story.channelTitle "NPR Article") " | Facebook")}}
           {{share.button
-            type='Twitter'
-            via='WNYC'
-            data-label=(concat story.title ' | ' (or story.showTitle story.channelTitle 'NPR Article') ' | Twitter')}}
+            type="Twitter"
+            via="WNYC"
+            data-label=(concat story.title " | " (or story.showTitle story.channelTitle "NPR Article") " | Twitter")}}
           {{share.button
-            type='Email'
-            data-label=(concat story.title ' | ' (or story.showTitle story.channelTitle 'NPR Article') ' | Email')}}
+            type="Email"
+            data-label=(concat story.title " | " (or story.showTitle story.channelTitle "NPR Article") " | Email")}}
         {{/nypr-share-button}}
         {{#if removeAction}}
-          <button class="btn btn--blank btn--playerlight queueitem-deletebutton" {{action removeAction story.id}}>
+          <button type="button" class="btn btn--blank btn--playerlight queueitem-deletebutton" {{action removeAction story.id}}>
             {{nypr-svg className="icon" icon="trash"}}
           </button>
         {{/if}}
@@ -50,17 +54,17 @@
   {{#g.right}}
     <div class="btn-group">
       {{listen-button
-        type='blue-hollow'
+        type="blue-hollow"
         isCurrentSound=isCurrent
         playContext=playContext
         itemPK=story.id
         itemTitle=story.title
-        itemShow=(or story.showTitle story.channelTitle 'NPR Article')}}
+        itemShow=(or story.showTitle story.channelTitle "NPR Article")}}
     </div>
   {{/g.right}}
 {{/holygrail-layout}}
 
-{{#if (and isCurrent (eq playContext 'queue'))}}
+{{#if (and isCurrent (eq playContext "queue"))}}
   <div class="queueitem-playingicon">
     {{nypr-svg className="icon" icon="speaker"}}
   </div>

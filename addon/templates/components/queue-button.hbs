@@ -1,4 +1,5 @@
-<span class="transition-plus-to-check" data-state={{if inQueue 'is-check'}}><span class="left"></span><span class="right"></span></span>
-{{#unless (eq type 'small-blue')}}
-<span>{{if inQueue 'Queued' 'Queue'}}</span>
+<span class="transition-plus-to-check" data-state={{if inQueue "is-check"}}><span class="left"></span><span class="right"></span></span>
+{{! template-lint-disable simple-unless }}
+{{#unless (eq type "small-blue")}}
+  <span>{{if inQueue "Queued" "Queue"}}</span>
 {{/unless}}

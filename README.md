@@ -1,4 +1,7 @@
-# nypr-audio-services
+# README
+
+nypr-audio-services
+==============================================================================
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/6afbef5dc3fef59ec322/maintainability)](https://codeclimate.com/github/nypublicradio/nypr-audio-services/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6afbef5dc3fef59ec322/test_coverage)](https://codeclimate.com/github/nypublicradio/nypr-audio-services/test_coverage)
@@ -35,10 +38,16 @@ This repo is the home of all audio-related controls in use by the web-clients. I
   * allows for event listeners to order up by priority and prevent subsequent listeners from running
 
 ## Installation
+
 ```sh
-$ npm i nypublicradio/nypr-audio-services
-$ ember g nypr-audio-services
+npm i nypublicradio/nypr-audio-services
+ember g nypr-audio-services
 ```
+
+### Compatibility
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
 
 ## Development
 

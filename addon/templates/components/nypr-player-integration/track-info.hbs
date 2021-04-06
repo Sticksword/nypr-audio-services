@@ -1,13 +1,15 @@
 {{#text-crawl watch=currentAudio}}
   {{!-- Show Link --}}
-  {{#if (and showTitle (media 'isNyprPlayerMediumAndUp'))}}
+  {{#if (and showTitle (media "isNyprPlayerMediumAndUp"))}}
     <a href={{showUrl}}
        title={{showTitle}}
-       class='nypr-player-link gtm__click-tracking'
-       target={{if (is-external showUrl) '_blank'}}
-       rel={{if (is-external showUrl) 'noopener'}}
-       data-action='Click Through to Show'
-       data-label='{{storyTitle}} | {{showTitle}}'>{{{showTitle}}}</a>
+       class="nypr-player-link gtm__click-tracking"
+       target={{if (is-external showUrl) "_blank"}}
+       rel={{if (is-external showUrl) "noopener"}}
+       data-action="Click Through to Show"
+       data-label="{{storyTitle}} | {{showTitle}}">
+      {{unescapedShowTitle}}
+    </a>
     {{#if (or storyTitle songDetails)}} - {{/if}}
   {{/if}}
 
@@ -15,12 +17,14 @@
   {{#if storyTitle}}
     <a href={{storyUrl}}
        title={{storyTitle}}
-       class='nypr-player-link gtm__click-tracking'
-       target={{if (is-external storyUrl) '_blank'}}
-       rel={{if (is-external storyUrl) 'noopener'}}
+       class="nypr-player-link gtm__click-tracking"
+       target={{if (is-external storyUrl) "_blank"}}
+       rel={{if (is-external storyUrl) "noopener"}}
        data-test-selector="nypr-player-story-title"
-       data-action='Click Through to Story'
-       data-label='{{storyTitle}} | {{showTitle}}'>{{{storyTitle}}}</a>
+       data-action="Click Through to Story"
+       data-label="{{storyTitle}} | {{showTitle}}">
+      {{unescapedStoryTitle}}
+    </a>
   {{/if}}
 
   {{!-- Song Info --}}
@@ -28,14 +32,16 @@
     {{songDetails}}
   {{/if}}
 
-  {{#if (and showTitle (media 'isNyprPlayerSmallOnly'))}}
+  {{#if (and showTitle (media "isNyprPlayerSmallOnly"))}}
     {{#if (or storyTitle songDetails)}} - {{/if}}
     <a href={{showUrl}}
        title={{showTitle}}
-       class='nypr-player-link gtm__click-tracking'
-       target={{if (is-external showUrl) '_blank'}}
-       rel={{if (is-external showUrl) 'noopener'}}
-       data-action='Click Through to Show'
-       data-label='{{storyTitle}} | {{showTitle}}'>{{{showTitle}}}</a>
+       class="nypr-player-link gtm__click-tracking"
+       target={{if (is-external showUrl) "_blank"}}
+       rel={{if (is-external showUrl) "noopener"}}
+       data-action="Click Through to Show"
+       data-label="{{storyTitle}} | {{showTitle}}">
+      {{unescapedShowTitle}}
+    </a>
   {{/if}}
 {{/text-crawl}}

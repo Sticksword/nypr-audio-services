@@ -13,6 +13,7 @@ const ICON_SUFFIXES = {
 export default Component.extend({
   layout,
   classNames: ['listen-ui'],
+  isVanilla: computed.equal('type', 'vanilla'),
   iconSuffix: computed('type', function() {
     return ICON_SUFFIXES[this.type] || '';
   }),
