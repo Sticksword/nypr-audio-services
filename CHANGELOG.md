@@ -1,5 +1,9 @@
 # nypr-audio-services Changelog
 
+## 0.7.0
+- [CHORE] Upgrade Ember to 3.7
+- [CHORE] Upgrade Ember Simple Auth to 3.0
+
 ## 0.6.0
 - [CHORE] Start tracking test coverage in code climate
 - [CHORE] Upgrade ember-fetch to 6.5
